@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logic Gates Simulator</title>
+</head>
+<body>
+    <h1>Logic Gates Simulator</h1>
+    <p>Click the buttons to simulate different logic gates:</p>
+
+    <button onclick="performOrGate()">OR Gate</button>
+    <button onclick="performAndGate()">AND Gate</button>
+    <button onclick="performNandGate()">NAND Gate</button>
+    <button onclick="performXorGate()">XOR Gate</button>
+    <button onclick="performXnorGate()">XNOR Gate</button>
+    <button onclick="performNorGate()">NOR Gate</button>
+
+    <br>
+    <input type="checkbox" id="inputA"> A
+    <input type="checkbox" id="inputB"> B
+
+    <p>Output: <span id="output"></span></p>
+
+    <button onclick="performNotGate()">NOT Gate</button>
+    <br>
+    <input type="checkbox" id="inputX"> X
+    <p>Output: <span id="outputNot"></span></p>
+
+    <script>
+        function performOrGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = inputA || inputB;
+            document.getElementById("output").textContent = result;
+        }
+
+        function performAndGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = inputA && inputB;
+            document.getElementById("output").textContent = result;
+        }
+
+        function performNandGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = !(inputA && inputB);
+            document.getElementById("output").textContent = result;
+        }
+
+        function performXorGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = (inputA || inputB) && !(inputA && inputB);
+            document.getElementById("output").textContent = result;
+        }
+
+        function performXnorGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = (inputA && inputB) || (!inputA && !inputB);
+            document.getElementById("output").textContent = result;
+        }
+
+        function performNorGate() {
+            var inputA = document.getElementById("inputA").checked;
+            var inputB = document.getElementById("inputB").checked;
+            var result = !(inputA || inputB);
+            document.getElementById("output").textContent = result;
+        }
+
+        function performNotGate() {
+            var inputX = document.getElementById("inputX").checked;
+            var result = !inputX;
+            document.getElementById("outputNot").textContent = result;
+        }
+    </script>
+</body>
+</html>
